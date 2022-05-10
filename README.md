@@ -51,6 +51,6 @@ Open your browser and navigate to: [http://localhost:3001/](http://localhost:300
 ____________________________________________________________________________________________________
 
 
-Link to repository: [https://github.com/paul88vera/barber-shop](https://github.com/paul88vera/barber-shop)  
+Link to original repository for group project: [https://github.com/johnproodian/barber-shop](hhttps://github.com/johnproodian/barber-shop)  
 Link to deployed application: [https://barber-shop-sidemerns.herokuapp.com/](https://barber-shop-sidemerns.herokuapp.com/)  
 Link to screenshot: ![https://i.imgur.com/Ifi9N2G.png](https://i.imgur.com/Ifi9N2G.png)  
