@@ -50,7 +50,7 @@ Open your browser and navigate to: [http://localhost:3001/](http://localhost:300
 
 ____________________________________________________________________________________________________
 
-
+Link to deployed application: https://shrouded-stream-03839.herokuapp.com/
 Link to original repository for group project: [https://github.com/johnproodian/barber-shop](https://github.com/johnproodian/barber-shop)  
-Link to deployed application: [https://barber-shop-sidemerns.herokuapp.com/](https://barber-shop-sidemerns.herokuapp.com/)  
+Link to original deployed application: [https://barber-shop-sidemerns.herokuapp.com/](https://barber-shop-sidemerns.herokuapp.com/)  
 Link to screenshot: ![https://i.imgur.com/Ifi9N2G.png](https://i.imgur.com/Ifi9N2G.png)  
