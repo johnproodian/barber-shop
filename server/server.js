@@ -21,7 +21,9 @@ const startServer = async () => {
 
 startServer();
 
+// for (the equivlant) of GET and POST requests: middleware for express server to recognize req objects as strings or arrays
 app.use(express.urlencoded({ extended: false }));
+// for (the equivalent of) GET and POST requests: middleware for express server to recognize incoming req objects as JSON objects
 app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
