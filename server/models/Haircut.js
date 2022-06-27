@@ -14,7 +14,7 @@ const haircutSchema = new Schema(
         //     default: Date.now,
         //     get: timestamp => dateformat(timestamp)
         // },
-        username: {
+        name: {
             type: String,
             required: true
         },

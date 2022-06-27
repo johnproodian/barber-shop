@@ -20,23 +20,23 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('haircuts');
         },
-        user: async (parent, { username }) => {
-          return User.findOne({ username })
+        user: async (parent, { name }) => {
+          return User.findOne({ name })
             .select('-__v -password')
             .populate('haircuts');
           }
     },
     
     Mutation: {
-      // args needed to create a user --> username and email
+      // args needed to create a user --> name and email
         addUser: async (parent, args) => {
             const user = await User.create(args);
             const token = signToken(user);
       
             return { token, user };
           },
-        login: async (parent, { username, password }) => {
-            const user = await User.findOne({ username });
+        login: async (parent, { name, password }) => {
+            const user = await User.findOne({ name });
       
             if (!user) {
               throw new AuthenticationError('Incorrect credentials');
@@ -54,7 +54,7 @@ const resolvers = {
           // Args needed to create a haircuut --> haircutText (necessary), instructions (not necessary), and user needs to be logged in
           addHaircut: async (parent, args, context) => {
             if (context.user) {
-              const haircut = await Haircut.create({ ...args, username: context.user.username });
+              const haircut = await Haircut.create({ ...args, name: context.user.name });
       
               await User.findByIdAndUpdate(
                 { _id: context.user._id },

@@ -6,7 +6,7 @@ import Auth from '../utils/auth';
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '',
+    name: '',
     email: '',
     password: ''
   });
@@ -42,10 +42,10 @@ const Signup = () => {
       <h1 className="signup-heading">Sign Up!</h1>
         <form onSubmit={handleFormSubmit} action="" method="get" className="signup-form">
           <div>
-            <label className="signup-label" htmlFor="username">
+            <label className="signup-label" htmlFor="name">
               Enter your name:
             </label>
-            <input type="username" name="username" id="username"  value={formState.username} onChange={handleChange}/>
+            <input type="name" name="name" id="name"  value={formState.name} onChange={handleChange}/>
           </div>
           <div className="">
             <label className="signup-label" htmlFor="email">
@@ -63,7 +63,7 @@ const Signup = () => {
             <input className="submit-btn" type="submit" value="Submit!" />
           </div>
         </form>
-        {error && <div>Signup failed! Username or email may already exist.</div>}
+        {error && <div>Signup failed! Name or email may already exist.</div>}
     </section>
   );
 }

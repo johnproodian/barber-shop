@@ -66,7 +66,7 @@ const Profile = () => {
               />
               {/* )} */}
             </div>
-            <div>{user.username}</div>
+            <div>{user.name}</div>
             <div>{user.email}</div>
           </div>
           <form onSubmit={handleFormSubmit} className="enter-haircut">
