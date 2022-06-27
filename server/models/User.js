@@ -6,7 +6,6 @@ const userSchema = new Schema(
         name: {
             type: String,
             required: true,
-            unique: true,
             trim: false
         },
         email: {
@@ -28,6 +27,7 @@ const userSchema = new Schema(
         ],
         barberRole: {
             type: Boolean,
+            required: true,
             default: false
         }
     }

@@ -27,11 +27,11 @@ const typeDefs = gql`
     type Auth {
         token: ID!
         user: User
-      }
+    }
 
     type Mutation {
         login(name: String!, password: String!): Auth
-        addUser(name: String!, email: String!, password: String!): Auth
+        addUser(name: String!, email: String!, password: String!, barberRole: Boolean): Auth
         addHaircut(haircutText: String!, instructions: String): Haircut
         deleteHaircut(_id: ID!): User
         deleteInstructions(_id: ID!): Haircut
