@@ -25,7 +25,11 @@ const userSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Haircut'
             }
-        ]
+        ],
+        barberRole: {
+            type: Boolean,
+            default: false
+        }
     }
 )
 
