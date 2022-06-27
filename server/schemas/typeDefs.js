@@ -6,6 +6,7 @@ const typeDefs = gql`
         name: String
         email: String
         haircuts: [Haircut]
+        barberRole: Boolean
     }
 
     type Haircut {
