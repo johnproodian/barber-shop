@@ -4,7 +4,7 @@ export const QUERY_ME = gql`
     query {
         me {
             _id
-            username
+            name
             email
             haircuts {
                 _id
@@ -19,7 +19,7 @@ export const QUERY_USERS = gql`
     query {
         users {
             _id
-            username
+            name
             email
             haircuts {
                 haircutText
@@ -30,10 +30,10 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_USER = gql`
-    query user($username: String!) {
-        user(username: $username) {
+    query user($name: String!) {
+        user(name: $name) {
             _id
-            username
+            name
             email
             haircuts {
                 _id

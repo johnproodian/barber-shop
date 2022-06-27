@@ -1,24 +1,24 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
-  mutation login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+  mutation login($name: String!, $password: String!) {
+    login(name: $name, password: $password) {
       token
       user {
         _id
-        username
+        name
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser($name: String!, $email: String!, $password: String!) {
+    addUser(name: $name, email: $email, password: $password) {
       token
       user {
         _id
-        username
+        name
       }
     }
   }
@@ -29,7 +29,7 @@ export const ADD_HAIRCUT = gql`
     addHaircut(haircutText: $haircutText, instructions: $instructions) {
       _id
       haircutText
-      username
+      name
       instructions
     }
   }
@@ -39,10 +39,10 @@ export const REMOVE_HAIRCUT = gql`
   mutation removeHaircut($id: ID!) {
     removeHaircut(id: $id) {
       _id
-      username
+      name
       haircut {
         _id
-        username
+        name
       }
     }
   }
