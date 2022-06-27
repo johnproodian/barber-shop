@@ -15,10 +15,15 @@ const resolvers = {
       
             throw new AuthenticationError('Not logged in');
           },
-        users: async () => {
-            return User.find()
-                .select('-__v -password')
-                .populate('haircuts');
+        users: async (parent, args, context) => {
+            if (context.user) {
+              return User.find()
+              .select('-__v -password')
+              .populate('haircuts');
+            }
+
+            throw new AuthenticationError("You don't have permission to get all users!");
+
         },
         user: async (parent, { name }) => {
           return User.findOne({ name })
@@ -31,7 +36,9 @@ const resolvers = {
       // args needed to create a user --> name and email
         addUser: async (parent, args) => {
             const user = await User.create(args);
+            console.log(user);
             const token = signToken(user);
+            console.log(token);
       
             return { token, user };
           },
