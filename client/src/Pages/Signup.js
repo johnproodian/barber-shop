@@ -41,7 +41,7 @@ const Signup = () => {
     <section className="signup-section">
       <h1 className="signup-heading">Sign Up!</h1>
         <form onSubmit={handleFormSubmit} action="" method="get" className="signup-form">
-          <div>name
+          <div>
             <label className="signup-label" htmlFor="name">
               Enter your name:
             </label>
