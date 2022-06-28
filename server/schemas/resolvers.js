@@ -16,7 +16,7 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
           },
         users: async (parent, args, context) => {
-            if (context.user) {
+            if (context.user.role.includes('barber')) {
               return User.find()
               .select('-__v -password')
               .populate('haircuts');
