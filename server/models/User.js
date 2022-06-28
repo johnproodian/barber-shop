@@ -25,10 +25,10 @@ const userSchema = new Schema(
                 ref: 'Haircut'
             }
         ],
-        barberRole: {
-            type: Boolean,
+        role: {
+            type: String,
             required: true,
-            default: false
+            default: 'client'
         }
     }
 )
