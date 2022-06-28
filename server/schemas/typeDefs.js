@@ -20,7 +20,7 @@ const typeDefs = gql`
     type Query {
         me: User
         users: [User]
-        user(name: String!): User
+        user(email: String!): User
         haircuts(name: String!): [Haircut]
     }
 
@@ -30,7 +30,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        login(name: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
         addUser(name: String!, email: String!, password: String!, role: String): Auth
         addHaircut(haircutText: String!, instructions: String): Haircut
         deleteHaircut(_id: ID!): User

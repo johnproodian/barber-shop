@@ -4,15 +4,15 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = () => {
-  const [formState, setFormState] = useState({ name: '', password: ''});
+  const [formState, setFormState] = useState({ email: '', password: ''});
   const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { email, value } = event.target;
 
     setFormState({ 
       ...formState,
-      [name]: value
+      [email]: value
     });
   };
 
@@ -30,7 +30,7 @@ const Login = () => {
     }
 
     setFormState({
-      name: '',
+      email: '',
       password: ''
     })
   }
@@ -42,16 +42,16 @@ const Login = () => {
       <div className="login">
         <form onSubmit={handleFormSubmit} action="" method="get" className="login-form">
           <div>
-            <label className="login-label" for="name">
-              Name:
+            <label className="login-label" for="email">
+              Email:
             </label>
-            <input type="name" name="name" id="name" value={formState.name} onChange={handleChange} />
+            <input type="text" name="email" id="email" value={formState.email} onChange={handleChange} />
           </div>
           <div className="">
             <label className="login-label" for="password">
               Password:
             </label>
-            <input type="password" name="password" id="password" value={formState.password} onChange={handleChange} />
+            <input type="text" name="password" id="password" value={formState.password} onChange={handleChange} />
           </div>
           <div className="login-btn-div">
             <input className="login-btn" type="submit" value="Login" />
