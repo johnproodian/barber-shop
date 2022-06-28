@@ -25,8 +25,8 @@ const resolvers = {
             throw new AuthenticationError("You don't have permission to get all users!");
 
         },
-        user: async (parent, { name }) => {
-          return User.findOne({ name })
+        user: async (parent, { email }) => {
+          return User.findOne({ email })
             .select('-__v -password')
             .populate('haircuts');
           }
@@ -42,8 +42,8 @@ const resolvers = {
       
             return { token, user };
           },
-        login: async (parent, { name, password }) => {
-            const user = await User.findOne({ name });
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
       
             if (!user) {
               throw new AuthenticationError('Incorrect credentials');
