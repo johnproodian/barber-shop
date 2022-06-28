@@ -20,7 +20,7 @@ module.exports = {
     }
 
     try {
-      const { data } = jwt.verify(token, secret, {algorithms: ['HS256']}, { maxAge: expiration });
+      const data = jwt.verify(token, secret, { maxAge: expiration });
       console.log(data);
       req.user = data;
       console.log(req.user);
@@ -33,7 +33,7 @@ module.exports = {
   signToken: function ({ name, email, _id }) {
     const payload = { name, email, _id };
     console.log(payload); //*delete this before production ///
-    return jwt.sign({ data: payload }, secret, {algorithm: 'HS256'}, { expiresIn: expiration });
+    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
 
