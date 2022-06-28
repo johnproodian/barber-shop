@@ -31,10 +31,10 @@ const Login = () => {
       console.error(e);
     }
 
-    // setFormState({
-    //   email: '',
-    //   password: ''
-    // })
+    setFormState({
+      email: '',
+      password: ''
+    })
   }
 
 
