@@ -71,24 +71,24 @@ const Profile = () => {
           </div>
           <form onSubmit={handleFormSubmit} className="enter-haircut">
             <label htmlFor="haircutText">Enter New Haircut:</label>
-            <input
-              class="profile-input"
+            <textarea
+              className="profile-input"
               type="text"
               id="haircutText"
               name="haircutText"
               value={formState.haircutText}
               onChange={handleChange}
-            ></input>
+            ></textarea>
             <br></br>
             <label htmlFor="instructions">Enter special instructions:</label>
-            <input
-              class="profile-input-int"
+            <textarea
+              className="profile-input-int"
               type="text"
               id="instructions"
               name="instructions"
               value={formState.instructions}
               onChange={handleChange}
-            ></input>
+            ></textarea>
             <button type="submit" className="save-btn">
               Save Haircut
             </button>
