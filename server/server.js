@@ -1,10 +1,14 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const multer = require('multer');
+const Grid = require('gridfs-stream');
+const fs = require('fs');
 
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth'); 
 const db = require('./config/connection');
+const bucket = new mongodb.GridFSBucket(db);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -19,6 +23,9 @@ const startServer = async () => {
     console.log(`Use graphql at http://localhost:${PORT}${server.graphqlPath}`);
 };
 
+// const storeFile = async (upload) => {
+//     const { filename, createReadStream, mimetype } = await upload.then(result => result);
+// }
 startServer();
 
 // for (the equivlant) of GET and POST requests: middleware for express server to recognize req objects as strings or arrays
