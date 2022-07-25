@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import { Sling as Hamburger } from 'hamburger-react'
+import Auth from '../../utils/auth';
 
 
 
 function Header() {
+
+  const logout = event => {
+    event.preventDefault();
+
+    Auth.logout();
+  }
+
   // const [isOpen, setOpen] = useState(false) 
   return (
     <section className="header-section">
@@ -51,12 +59,23 @@ function Header() {
               <Link to="/contact">
                 <li className="hvr-glow nav-item">Contact</li>
               </Link>
-              <Link to="/login">
-                <li className="hvr-glow nav-item">Login</li>
-              </Link>
-              <Link to="/profile">
-                <li className="hvr-glow nav-item">Profile</li>
-              </Link>
+              {Auth.loggedIn() ? (
+                <>
+                  <Link to="/profile">
+                    <li className="hvr-glow nav-item">Profile</li>
+                  </Link>
+                  <li className="hvr-glow nav-item">
+                    <a href="/" onClick={logout}>Log Out</a>
+                  </li>
+                    {/* <li className="hvr-glow nav-item">Log Out</li> */}
+                </>
+              ) : (
+                <Link to="/login">
+                  <li className="hvr-glow nav-item">Log In</li>
+                </Link>
+              )}
+              
+              
             </ul>
           </div>
         {/* </div> */}
