@@ -83,8 +83,7 @@ const resolvers = {
                 })
             }
             throw new AuthenticationError('You need to be logged in!');
-          }
-          ,
+          },
           deleteInstructions: async (parent, { _id }, context) => {
             if (context.user) {
               const haircut = await Haircut.findOneAndUpdate(
