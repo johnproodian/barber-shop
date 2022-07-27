@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
+// import { UserList } from '../components/UserList';
 
 const Home = () => {
+
+  const [formState, setFormState] = useState({
+    clicked: false
+  });
+
+  const handleClick = (event) => {
+    event.preventDefault();
+
+    if (event) {
+      setFormState({
+        ...formState,
+        clicked: true
+      });
+    };
+  }
   const {loading, error, data } = useQuery(QUERY_ME);
 
   const user = data?.me;
@@ -17,6 +33,7 @@ const Home = () => {
             </section>)
           } else if (user.role === 'barber') {
             return (
+              // <UserList></UserList>
               <section className="signup-hero">
                 <div className="hero-text">
                   <p className="promo">What would you like to do, {user.name}?</p>
@@ -35,11 +52,15 @@ const Home = () => {
                       View My Profile
                     </button>
                   </Link>
-                  <Link to="/">
+                  <a href="/" onClick={handleClick}>
                     <button id="users-btn" className="signup-btn">
                       View My Clients
                     </button>
-                  </Link>
+                  </a>
+                  {formState.clicked && (
+                    <div>Sorry, that feature is not yet available. Try again later!</div>
+                  )}
+                  
                 </div>
               </section>
             )
