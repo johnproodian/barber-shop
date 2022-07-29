@@ -33,7 +33,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(name: String!, email: String!, password: String!, role: String): Auth
         addHaircut(haircutText: String!, instructions: String): Haircut
-        deleteHaircut(_id: ID!): User
+        deleteHaircut(_id: ID!): Haircut
         deleteInstructions(_id: ID!): Haircut
     }
 `;

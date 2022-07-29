@@ -17,9 +17,11 @@ const resolvers = {
           },
         users: async (parent, args, context) => {
             if (context.user.role.includes('barber')) {
-              return User.find()
+              const users = await User.find()
               .select('-__v -password')
               .populate('haircuts');
+
+              return users;
             }
 
             throw new AuthenticationError("You don't have permission to get all users!");
@@ -60,6 +62,7 @@ const resolvers = {
           },
           // Args needed to create a haircuut --> haircutText (necessary), instructions (not necessary), and user needs to be logged in
           addHaircut: async (parent, args, context) => {
+            console.log('c.u: ', context.user);
             if (context.user) {
               const haircut = await Haircut.create({ ...args, name: context.user.name });
       
@@ -76,11 +79,10 @@ const resolvers = {
           },
           // Use the haircut's unique _id to find and delete it
           deleteHaircut: async (parent, args, context) => {
-            if (context.user) {
-              Haircut.findOneAndDelete( args._id )
-                .then(deletedHaircut => {
-                  return deletedHaircut;
-                })
+            if (context.user) { 
+              const deletedHaircut = await Haircut.findByIdAndDelete(args._id);
+              
+              return deletedHaircut;
             }
             throw new AuthenticationError('You need to be logged in!');
           },

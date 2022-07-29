@@ -1,7 +1,11 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const haircutSchema = new Schema(
     {
+        // haircutId: {
+        //     type: Schema.Types.ObjectId,
+        //     default: () => new Types.ObjectId()
+        // },
         haircutText: {
             type: String,
             // required: 'You need to enter a haircut!',
