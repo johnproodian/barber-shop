@@ -27,7 +27,7 @@ const Home = () => {
 
     if (Auth.loggedIn()) {
       
-          if (loading) {
+          if (loading || error) {
             return (<section className="signup-hero">
               <div className="hero-text"></div>
             </section>)

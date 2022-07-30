@@ -35,15 +35,13 @@ export const ADD_HAIRCUT = gql`
   }
 `;
 
-export const REMOVE_HAIRCUT = gql`
-  mutation deleteHaircut($id: ID!) {
-    deleteHaircut(id: $id) {
+export const DELETE_HAIRCUT = gql`
+  mutation deleteHaircut($_id: ID!) {
+    deleteHaircut(_id: $_id) {
       _id
       name
-      haircut {
-        _id
-        name
-      }
+      haircutText
+      instructions
     }
   }
 `;

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Calendly from '../components/Calendly';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
-import { ADD_HAIRCUT } from '../utils/mutations';
-import auth from '../utils/auth';
+import { ADD_HAIRCUT, DELETE_HAIRCUT } from '../utils/mutations';
 
 const Profile = () => {
   const { loading, error, data } = useQuery(QUERY_ME);
@@ -12,7 +11,9 @@ const Profile = () => {
     haircutText: '',
     instructions: '',
   });
+
   const [addHaircut, { e }] = useMutation(ADD_HAIRCUT);
+  const [deleteHaircut, { err }] = useMutation(DELETE_HAIRCUT);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,6 +43,21 @@ const Profile = () => {
     window.location.reload();
   };
 
+  const handleDelete = (event) => {
+    const haircutId = event.target.getAttribute("id");    
+
+    try {
+      const { data } = deleteHaircut({
+        variables: { _id: haircutId }
+      });
+      
+    } catch (err) {
+      console.log(err);
+    }
+
+    window.location.reload();
+  }
+
   if (loading) {
     return <div>Loading...</div>;
   } else if (error) {
@@ -49,8 +65,6 @@ const Profile = () => {
     return <div>Error!</div>;
   } else {
     const user = data.me;
-    console.log(user);
-    console.log(user.haircuts);
     const haircuts = user.haircuts;
 
     return (
@@ -98,12 +112,12 @@ const Profile = () => {
           {haircuts ? (
             haircuts.map((haircut) => (
               <div key={haircut._id} className="card">
-                <div className="container">
+                <div className="container" key={haircut._id}>
                   <h4>
                     <b>Haircut: {haircut.haircutText}</b>
                   </h4>
                   <p>Special Instructions: {haircut.instructions}</p>
-                  <button type="button" className="delete-btn">
+                  <button type="button" className="delete-btn" id={haircut._id} onClick={handleDelete}>
                     Delete Haircut
                   </button>
                 </div>
