@@ -24,7 +24,7 @@ const haircutSchema = new Schema(
         },
         instructions: {
             type: String,
-            minlength: 1,
+            minlength: 0,
             maxlength: 280,
             required: false
         }

@@ -27,6 +27,12 @@ const Profile = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    // let tester = {};
+    // tester = {variables: { ...formState }};
+    // console.log(tester);
+    // console.log(tester.variables);
+
+
     try {
       const { data } = await addHaircut({
         variables: { ...formState },
