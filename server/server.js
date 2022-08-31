@@ -31,9 +31,9 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
 // db.once (i.e. mongoose.connection.once) means that the callback function will only happen one time, namely, when the condition indicated by the first parameter happenes--i.e., in this case, the connection is opened)
 db.once('open', () => {

@@ -113,10 +113,10 @@ const Profile = () => {
             haircuts.map((haircut) => (
               <div key={haircut._id} className="card">
                 <div className="container" key={haircut._id}>
-                  <h4>
-                    <b>Haircut: {haircut.haircutText}</b>
+                  <h4 className="haircut-text">
+                    <b>Haircut:</b> {haircut.haircutText}
                   </h4>
-                  <p>Special Instructions: {haircut.instructions}</p>
+                  <p className="hair-instructions haircut-text"> <b>Special Instructions:</b> {haircut.instructions}</p>
                   <button type="button" className="delete-btn" id={haircut._id} onClick={handleDelete}>
                     Delete Haircut
                   </button>

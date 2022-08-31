@@ -62,16 +62,16 @@ const resolvers = {
           },
           // Args needed to create a haircuut --> haircutText (necessary), instructions (not necessary), and user needs to be logged in
           addHaircut: async (parent, args, context) => {
-            console.log('c.u: ', context.user);
             if (context.user) {
               const haircut = await Haircut.create({ ...args, name: context.user.name });
-      
+              console.log('they did or didn"t create a haircut?');
               await User.findByIdAndUpdate(
                 { _id: context.user._id },
                 { $push: { haircuts: haircut._id } },
                 { new: true }
               );
-      
+                
+              console.log(haircut);
               return haircut;
             }
       
