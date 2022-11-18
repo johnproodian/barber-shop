@@ -3,6 +3,7 @@ import Calendly from '../components/Calendly';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import { ADD_HAIRCUT, DELETE_HAIRCUT } from '../utils/mutations';
+console.log(QUERY_ME)
 
 const Profile = () => {
   const { loading, error, data } = useQuery(QUERY_ME);
